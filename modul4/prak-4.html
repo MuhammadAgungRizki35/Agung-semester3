@@ -9,6 +9,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         header {
@@ -21,7 +24,7 @@
         header img {
             width: 100px;
             height: 100px;
-            margin: 10px;
+            margin: 10px 0; /* Geser logo ke atas dan ke bawah */
         }
 
         nav {
@@ -37,10 +40,15 @@
             margin: 10px;
         }
 
-        .sidebar {
-            float: right;
-            width: 40%;
+        .content {
+            width: 75%; /* Ubah lebar sesuai kebutuhan */
             padding: 20px;
+        }
+
+        .sidebar {
+            width: 25%; /* Ubah lebar sesuai kebutuhan */
+            padding: 20px;
+            background-color: #ddd;
         }
 
         .sidebar ul {
@@ -50,12 +58,6 @@
 
         .sidebar li {
             margin: 10px 0;
-        }
-
-        .content {
-            float: left;
-            width: 55%;
-            padding: 20px;
         }
 
         footer {
@@ -74,25 +76,15 @@
 <body>
     <header>
         <img src="polibang.png" alt="Logo 1">
-        <img src="logo2.png" alt="Logo 2">
-        <img src="logo3.png" alt="Logo 3">
+        <img src="rpl.png" alt="Logo 3" style="margin-left: auto; margin-right: 0;"> <!-- Geser logo RPL ke kanan -->
     </header>
 
     <nav>
-        <a href="#">Menu 1</a>
-        <a href="#">Menu 2</a>
+        <a href="menu1.html">Menu 1</a>
+        <a href="menu2.html">Menu 2</a>
         <a href="https://www.external-link.com">Menu 3 (External Link)</a>
-        <a href="#">Menu 4 (Form)</a>
+        <a href="form.html">Menu 4 (Form)</a>
     </nav>
-
-    <div class="sidebar">
-        <ul>
-            <li><a href="#" onclick="showInfo('Teman 1')">Teman 1</a></li>
-            <li><a href="#" onclick="showInfo('Teman 2')">Teman 2</a></li>
-            <li><a href="#" onclick="showInfo('Teman 3')">Teman 3</a></li>
-            <li><a href="#" onclick="showInfo('Teman 4')">Teman 4</a></li>
-        </ul>
-    </div>
 
     <div class="content">
         <h1>Small Logo</h1>
@@ -100,17 +92,28 @@
         <p>Alamat Institusi: [Alamat Institusi]</p>
     </div>
 
-    <footer>
-        <h2>Visi dan Misi</h2>
-        <p>Teks penjelasan tentang Visi dan Misi prodi RPL.</p>
-        <p>Nama Dosen Prodi RPL: [Nama Dosen]</p>
-    </footer>
+    <div class="sidebar">
+        <ul>
+            <li><a href="agzky.html" onclick="showInfo('Teman 1')">Teman 1</a></li>
+            <li><a href="tyo.html" onclick="showInfo('Teman 2')">Teman 2</a></li>
+            <li><a href="atep.html" onclick="showInfo('Teman 3')">Teman 3</a></li>
+            <li><a href="bowo.html" onclick="showInfo('Teman 4')">Teman 4</a></li>
+        </ul>
+    </div>
 
-    <script>
-        function showInfo(name) {
-            // Gantilah dengan kode untuk menampilkan informasi teman
-            // dan fotonya sesuai dengan nama yang diklik.
-        }
-    </script>
+    <footer>
+        <h2>Visi</h2>
+        <p>Menjadi Politeknik yang Berdaya Saing Global, Professional dan beraqidah Ahlus Sunnah Wal Jama’ah</p>
+        <h2>Misi</h2>
+        <p>Menyelenggarakan dan mengembangkan pendidikan yang mampu berdaya saing dalam era globalisasi</p>
+        <p>Menyelenggarakan dan menghasilkan pendidikan yang profesional sesuai dengan prinsip good university governance</p>
+        <p>Membangun komunitas yang ikhlas, toleransi, moderat dan religi dalam menjaga Negara Kesatuan Republik Indonesia</p>
+        <p>Melaksanakan Tri Dharma peguruan tinggi</p>
+
+        <p></p>
+
+        <p></p>
+        <h1>Indrakur Kurniawan M.kom</h1>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Sederhana</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Form</h1>
+        <form action="proses_form.php" method="POST">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+            <br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br><br>
+
+            <label for="pesan">Pesan:</label>
+            <textarea id="pesan" name="pesan" rows="4" cols="50"></textarea>
+            <br><br>
+
+            <input type="submit" value="Kirim">
+        </form>
+    </div>
+</body>
+</html>

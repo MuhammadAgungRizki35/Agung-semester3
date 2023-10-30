@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Layout</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 200px;
+            border: 1px solid #ffffff;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            background-color: #ffffff;
+            box-shadow: 1px 3px 9px #b0b0b0, -4px -4px 10px #ffffff;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top-left-radius: 50px;
+        }
+
+        /* Menggeser "Card 1" ke atas dan ke kiri */
+        .card:first-child {
+            transform: scale(1) translate(-40px, -140px);
+        }
+
+        /* Memperpanjang "Card 2" ke kanan dan ke kiri serta mengurangi margin atas dan bawah */
+        .card:nth-child(2) {
+            width: 250px; /* Lebar diperpanjang */
+            transform: scale(1.5) translate(-25px, 100px); /* Perbesar dan geser ke kiri dan bawah */
+            margin-top: 15px; /* Mengurangi margin atas */
+            margin-bottom: 15px; /* Mengurangi margin bawah */
+            border-bottom-right-radius: 50px; /* Memberikan radius sudut kanan bawah */
+        }
+
+        /* Mengubah "Card 3" menjadi border-bottom-right-radius */
+        .card:nth-child(3) {
+            border-top-left-radius: 0; /* Menghapus radius sudut kiri atas yang sebelumnya */
+            border-bottom-right-radius: 50px; /* Menambahkan radius sudut kanan bawah */
+        }
+
+        .card:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="polibang.jpeg" alt="logo polibang" width="100%">
+        <h2>Artikel</h2>
+        <ul>
+            <li>web</li>
+            <li>html</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>belajar layout design </h2>
+        <p>p</p>
+    </div>
+
+    <div class="card">
+        <h2>Card 3</h2>
+        <p>p</p>
+    </div>
+
+    <div class="card">
+        <h2>Card 4</h2>
+        <p>p</p>
+    </div>
+
+    <div class="card">
+        <h2>Card 5</h2>
+        <p>p</p>
+    </div>
+</body>
+</html>
