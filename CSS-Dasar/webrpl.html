@@ -12,10 +12,11 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow-y: scroll; /* Enable vertical scrolling */
         }
 
         .card {
-            width: 200px;
+            width: 250px;
             border: 1px solid #ffffff;
             margin: 10px;
             padding: 10px;
@@ -24,27 +25,45 @@
             background-color: #ffffff;
             box-shadow: 1px 3px 9px #b0b0b0, -4px -4px 10px #ffffff;
             transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 100%; /* Maksimum lebar gambar sesuai dengan lebar container */
+              height: auto;
+        }
+
+        .card:first-child {
+            transform: scale(0.8) translate(470px, -330px);
             border-top-left-radius: 50px;
         }
 
-        /* Menggeser "Card 1" ke atas dan ke kiri */
-        .card:first-child {
-            transform: scale(1) translate(-40px, -140px);
-        }
-
-        /* Memperpanjang "Card 2" ke kanan dan ke kiri serta mengurangi margin atas dan bawah */
         .card:nth-child(2) {
-            width: 250px; /* Lebar diperpanjang */
-            transform: scale(1.5) translate(-25px, 100px); /* Perbesar dan geser ke kiri dan bawah */
-            margin-top: 15px; /* Mengurangi margin atas */
-            margin-bottom: 15px; /* Mengurangi margin bawah */
-            border-bottom-right-radius: 50px; /* Memberikan radius sudut kanan bawah */
+            transform: scale(2) translate(245px, 150px);
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 50px;
+            background-color: rgb(255, 255, 255);
         }
 
-        /* Mengubah "Card 3" menjadi border-bottom-right-radius */
         .card:nth-child(3) {
-            border-top-left-radius: 0; /* Menghapus radius sudut kiri atas yang sebelumnya */
-            border-bottom-right-radius: 50px; /* Menambahkan radius sudut kanan bawah */
+            transform: scale(2.1) translate(96px, -150px);
+            border-bottom-right-radius: 50px;
+            border-top-left-radius: 0;
+            text-align: right;
+            
+
+        }
+
+        .card:nth-child(4) {
+            transform: scale(1.9) translate(-50px,  10px); /* Reset transform */
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 20px; /* Adjusted padding for content */
+        }
+
+        .card:nth-child(5) {
+            transform: scale(1.2) translate(-415px, 80px);
+            width: 300px;
+            border-top-left-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
 
         .card:nth-child(odd) {
@@ -60,6 +79,35 @@
             font-size: 14px;
             color: #333;
         }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .card .content {
+            margin-top: 15px;
+        }
+
+        .navbar {
+            transform: scale(1.3) translate(-355px, -148px);
+            list-style: none;
+            padding: 0;
+            display: flex;
+            background-color: rgb(33, 0, 182);
+            margin-top: 20px;
+        }
+
+        .navbar li {
+            margin: 0 10px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -73,23 +121,30 @@
     </div>
 
     <div class="card">
-        <h2>belajar layout design </h2>
-        <p>p</p>
+        <p>&copy; 2023</p>
+        <p>Politeknik Balekambang</p>
     </div>
 
     <div class="card">
-        <h2>Card 3</h2>
-        <p>p</p>
+        <h4>Belajar layout website</h4>
     </div>
 
     <div class="card">
-        <h2>Card 4</h2>
-        <p>p</p>
+        <h2>Selamat Belajar!</h2>
+        <div class="content">
+            <p>Memperdalam pengetahuan tentang layout design web menggunakan HTML dan CSS akan membawa kemampuanmu ke level berikutnya.</p>
+            <img src="image/laptpop.jpeg" alt="Image 1">
+            <!-- <img src="image2.jpg" alt="Image 2"> -->
+        </div>
     </div>
 
-    <div class="card">
-        <h2>Card 5</h2>
-        <p>p</p>
-    </div>
+    <ul class="navbar">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="visi_misi.html">Visi & Misi</a></li>
+        <li><a href="informasi.html">Informasi</a></li>
+        <li><a href="dosen.html">Dosen</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+    </ul>
 </body>
 </html>
