@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CSS Example</title>
+    
+    <!-- Bootstrap CSS (you may need to install Bootstrap first) -->
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            --bs-body-font-family: var(--bs-font-monospace);
+            --bs-body-line-height: 1.4;
+            --bs-body-bg: var(--bs-gray-100);
+        }
+
+        .table {
+            --bs-table-color: var(--bs-gray-600);
+            --bs-table-bg: var(--bs-gray-100);
+            --bs-table-border-color: transparent;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Hello, Custom CSS!</h1>
+        <p>This is a simple example of using custom CSS properties in an HTML file.</p>
+
+        <!-- Bootstrap table with custom CSS properties -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Data 4</td>
+                    <td>Data 5</td>
+                    <td>Data 6</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS dependencies (optional) -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
