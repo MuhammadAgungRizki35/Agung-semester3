@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphic Stopwatch</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('your-background-image.jpg'); /* Replace with your background image or color */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #stopwatch {
+            font-size: 2em;
+            margin: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            border-radius: 8px;
+        }
+
+        #startButton, #stopButton, #resetButton {
+            font-size: 1em;
+            margin: 5px;
+            padding: 8px 16px;
+            background: #000000; /* Change the color as needed */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="mt-5">Glassmorphic Stopwatch</h1>
+        <div id="stopwatch">00:00:00</div>
+        <button id="startButton" onclick="startStopwatch()">Start</button>
+        <button id="stopButton" onclick="stopStopwatch()">Stop</button>
+        <button id="resetButton" onclick="resetStopwatch()">Reset</button>
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        var stopwatch;
+        var startTime;
+        var isRunning = false;
+
+        function updateStopwatch() {
+            if (isRunning) {
+                var currentTime = new Date().getTime();
+                var elapsedTime = currentTime - startTime;
+                displayTime(elapsedTime);
+                requestAnimationFrame(updateStopwatch);
+            }
+        }
+
+        function displayTime(elapsedTime) {
+            var hours = Math.floor(elapsedTime / 3600000);
+            var minutes = Math.floor((elapsedTime % 3600000) / 60000);
+            var seconds = Math.floor((elapsedTime % 60000) / 1000);
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            document.getElementById("stopwatch").innerHTML = hours + ":" + minutes + ":" + seconds;
+        }
+
+        function startStopwatch() {
+            if (!isRunning) {
+                isRunning = true;
+                startTime = new Date().getTime();
+                updateStopwatch();
+            }
+        }
+
+        function stopStopwatch() {
+            isRunning = false;
+        }
+
+        function resetStopwatch() {
+            isRunning = false;
+            displayTime(0);
+        }
+    </script>
+</body>
+</html>
