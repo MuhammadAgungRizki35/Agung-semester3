@@ -11,7 +11,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "database_prak";
+    $dbname = "db-prak";
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Cek koneksi
@@ -22,38 +22,41 @@
     // Proses saat form disubmit
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Cek apakah semua field terisi
-        if (empty($_POST["name"]) || empty($_POST["email"]) || empty($_POST["website"]) || empty($_POST["gender"])) {
+        if (empty($_POST["nama"]) || empty($_POST["gmail"]) || empty($_POST["website"]) || empty($_POST["gender"])) {
             echo "Mohon isi semua field!";
         } else {
             // Ambil data dari form
-            $name = $_POST["name"];
-            $email = $_POST["email"];
+            $nama = $_POST["nama"];
+            $email = $_POST["gmail"];
             $website = $_POST["website"];
             $gender = $_POST["gender"];
+            $coment = $_POST["coment"];
 
-            // Simpan data ke dalam database
-            $sql = "INSERT INTO users (name, email, website, gender) VALUES ('$name', '$email', '$website', '$gender')";
-            if ($conn->query($sql) === TRUE) {
+            // Simpan data ke dalam database (using prepared statement)
+            $stmt = $conn->prepare("INSERT INTO form (nama, email, website, gender, coment) VALUES ($nama, $email, $website, $gender, $coment)");
+            $stmt->bind_param("sssss", $nama, $email, $website, $gender, $coment);
+            if ($stmt->execute()) {
                 echo "Data berhasil disimpan!";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $stmt->error;
             }
+            $stmt->close();
         }
     }
     ?>
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="name">Name:</label>
-        <input type="text" name="name" required><br><br>
+    <form method="post" action="">
+        <label for="nama">Name:</label>
+        <input type="text" name="nama" required><br><br>
 
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" required><br><br>
+        <label for="gmail">E-mail:</label>
+        <input type="email" name="gmail" required><br><br>
 
         <label for="website">Website:</label>
         <input type="text" name="website" required><br><br>
 
-        <label for="comment">Comment:</label>
-        <textarea name="comment"></textarea><br><br>
+        <label for="coment">Comment:</label>
+        <textarea name="coment"></textarea><br><br>
 
         <label for="gender">Gender:</label>
         <input type="radio" name="gender" value="female" required> Female
@@ -61,28 +64,5 @@
 
         <input type="submit" name="submit" value="Submit">
     </form>
-
-    <h2>Data yang sudah disimpan:</h2>
-
-    <?php
-    // Tampilkan data yang sudah disimpan di database
-    $sql = "SELECT * FROM users";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            echo "Name: " . $row["name"] . "<br>";
-            echo "E-mail: " . $row["email"] . "<br>";
-            echo "Website: " . $row["website"] . "<br>";
-            echo "Gender: " . $row["gender"] . "<br><br>";
-        }
-    } else {
-        echo "Belum ada data yang disimpan.";
-    }
-
-    // Tutup koneksi ke database
-    $conn->close();
-    ?>
-
 </body>
 </html>
