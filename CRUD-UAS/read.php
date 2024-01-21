@@ -10,7 +10,8 @@ include 'config.php';
 
 $query = "SELECT * FROM catatan";
 $result = mysqli_query($conn, $query);
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -35,6 +36,7 @@ $result = mysqli_query($conn, $query);
             margin-top: 15px;
             position: relative; /* Add position relative for positioning date */
             padding: 15px; /* Add padding for better spacing */
+            background: rgba(255, 255, 255, 0.2);
         }
 
         h2 {
@@ -65,13 +67,17 @@ $result = mysqli_query($conn, $query);
             echo "<h5 class='card-title'>{$row['judul']}</h5>";
             echo "<p class='card-text'>{$row['isi']}</p>";
             
-            // Format the timestamps for "Tanggal Dibuat" and "Tanggal Diperbarui"
-            $createdDate = date('d F Y H:i:s', strtotime($row['tgl_dibuat']));
-            $updatedDate = date('d F Y H:i:s', strtotime($row['tgl_diperbarui']));
-            
-            // Display formatted dates without additional text
-            echo "<p class='date-info'>{$createdDate}</p>";
-            echo "<p class='date-info'>{$updatedDate}</p>";
+            // Check whether the catatan has been updated
+            $isUpdated = ($row['tgl_diperbarui'] != null);
+
+            // Display the appropriate date based on the condition
+            if ($isUpdated) {
+                $updatedDate = date('d F Y H:i:s', strtotime($row['tgl_diperbarui']));
+                echo "<p class='date-info'>{$updatedDate}</p>";
+            } else {
+                $createdDate = date('d F Y H:i:s', strtotime($row['tgl_dibuat']));
+                echo "<p class='date-info'> {$createdDate}</p>";
+            }
             
             echo "<a href='update.php?id={$row['id']}' class='btn btn-warning'>Perbarui</a>";
             echo "<a href='delete.php?id={$row['id']}' class='btn btn-danger'>Hapus</a>";

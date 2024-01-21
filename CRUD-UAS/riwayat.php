@@ -19,7 +19,15 @@
             color: #fbca47; /* Memberikan warna teks agar kontras dengan background */
         }
 
+        .card{
 
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
+        }
+
+        .h5{
+            color:white;
+        }
         
     </style>
 
@@ -28,14 +36,14 @@
     </div>
 
     <div class="container mt-5">
-        <h2>Dashboard</h2>
+        <h2>History</h2>
         <div class="row mt-3">
             
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-dark">Lihat Catatan</h5>
-                        <p class="card-text text-dark">Lihat catatan yang sudah dibuat.</p>
+                        <h5 class="card-title text-light">Lihat Catatan</h5>
+                        <p class="card-text text-light">Lihat catatan yang sudah dibuat.</p>
                         <a href="read.php" class="btn btn-warning">Lihat Catatan</a>
                     </div>
                 </div>

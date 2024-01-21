@@ -42,29 +42,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         color: #fbca47; /* Memberikan warna teks agar kontras dengan background */
     }
 
-    /* Change text color to black for the labels */
-    label {
-        color: black;
+    .custom-form {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #ffffff;
+
+    }
+
+    .custom-form label {
+        color: white;
     }
 </style>
 <body>
-   
     <div class="container mt-5">
-    <h2>Buat catatan</h2>
-        <div class="card">
-            <div class="card-body">
-                <form method="post">
-                    <div class="form-group">
-                        <label for="judul">Judul:</label>
-                        <input type="text" class="form-control" name="judul" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="isi">Isi Catatan:</label>
-                        <textarea class="form-control" name="isi" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-warning">Submit</button>
-                </form>
-            </div>
+        <h2>Buat catatan</h2>
+        <div class="custom-form">
+            <form method="post">
+                <div class="form-group">
+                    <label for="judul">Judul:</label>
+                    <input type="text" class="form-control" name="judul" required>
+                </div>
+                <div class="form-group">
+                    <label for="isi">Isi Catatan:</label>
+                    <textarea class="form-control" name="isi" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form>
         </div>
     </div>
 </body>

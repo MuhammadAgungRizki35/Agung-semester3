@@ -48,10 +48,21 @@ $row = mysqli_fetch_assoc($result);
             justify-content: center;
             color: #000000; /* Memberikan warna teks agar kontras dengan background */
         }
+
+
+        .card{
+
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
+                    }
+
+        h2, label, .form-control {
+        color: white;
+    }
 </style>
 <body>
     <div class="container mt-9">
-        <h2>Update Catatan</h2>
+        <h2 class ="text-warning">Update Catatan</h2>
         <div class="card">
             <div class="card-body">
                 <form method="post">
@@ -64,10 +75,10 @@ $row = mysqli_fetch_assoc($result);
                         <label for="isi">Isi Catatan:</label>
                         <textarea class="form-control" name="isi" rows="5" required><?php echo $row['isi']; ?></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-warning">Update</button>
                 </form>
                 <div class="mt-3">
-                    <a href="read.php" class="btn btn-secondary">Kembali ke Lihat Catatan</a>
+                    <a href="read.php" class="btn btn-dark">Kembali ke Lihat Catatan</a>
                 </div>
             </div>
         </div>

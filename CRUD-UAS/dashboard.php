@@ -30,6 +30,12 @@ $result = mysqli_query($conn, $query);
              align-items: center;
             justify-content: center;
             color:#fbca47; /* Memberikan warna teks agar kontras dengan background */
+            
+        }
+
+        .card{
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
         }
     </style>
 
@@ -42,9 +48,9 @@ $result = mysqli_query($conn, $query);
         <div class="row mt-3">
             <div class="col-md-4">
                 <div class="card">
-                    <div class="card-body" style="background-color: #fff;">
-                        <h5 class="card-title text-dark">Buat Catatan</h5>
-                        <p class="card-text text-dark">Tambahkan catatan baru.</p>
+                    <div class="card-body" style=" background-color: rgba(255, 255, 255, 0.2);">
+                        <h5 class="card-title text-light">Buat Catatan</h5>
+                        <p class="card-text text-light">Tambahkan catatan baru.</p>
                         <a href="create.php" class="btn btn-warning">Buat Catatan</a>
                     </div>
                 </div>

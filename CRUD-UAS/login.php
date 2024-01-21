@@ -38,8 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_close($stmt);
     }
 }
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -59,46 +58,63 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         .container {
-            background: rgba(0, 0, 0, 0.5); /* Memberikan transparansi hitam pada container */
-            padding: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
             border-radius: 10px;
             text-align: center;
+            max-width: 400px; /* Sesuaikan lebar container sesuai kebutuhan */
+            border: 1px solid #ffffff;
+
         }
 
         .container h2 {
             margin-bottom: 20px;
         }
 
-        /* Change text color to black for the input fields */
+        /* Change text color to white for the labels */
+        label {
+            color: white;
+        }
+
+        /* Change text color to white for the input fields */
         .form-control {
-            color: black;
+            color: white;
+        }
+
+        /* Change button color to yellow */
+        .btn-warning {
+            color: #212529;
+            background-color: #fbca47;
+            border-color: #fbca47;
+        }
+
+        /* Style for error message */
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
         }
     </style>
 </head>
 <body>
     <div class="container mt-5">
-    <h2>Login</h2>
-        <div class="card">
-            <div class="card-header"></div>
-            <div class="card-body">
-                <?php if (isset($error_message)): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $error_message; ?>
-                    </div>
-                <?php endif; ?>
-                <form method="post" action="login.php">
-                    <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="text" class="form-control" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" class="form-control" name="password" required>
-                    </div>
-                    <button type="submit" class="btn btn-warning">Login</button>
-                </form>
+        <h2>Login</h2>
+        <?php if (isset($error_message)): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $error_message; ?>
             </div>
-        </div>
+        <?php endif; ?>
+        <form method="post" action="login.php">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-warning">Login</button>
+        </form>
     </div>
 </body>
 </html>
