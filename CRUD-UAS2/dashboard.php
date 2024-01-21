@@ -1,17 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
-    exit();
-}
-
-include 'config.php';
-
-$query = "SELECT * FROM catatan";
-$result = mysqli_query($conn, $query);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,46 +13,49 @@ $result = mysqli_query($conn, $query);
             background-size: cover;
             height: 100vh;
             margin: 0;
-             align-items: center;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            color:#fbca47; /* Memberikan warna teks agar kontras dengan background */
+            color: #fbca47; /* Memberikan warna teks agar kontras dengan background */
             
         }
 
         .card{
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid #ffffff;
+            width: 90%;
+        }
+
+        .custom-card {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 400px; /* Sesuaikan lebar container sesuai kebutuhan */
+            margin: auto; /* Memusatkan kotak buat catatan */
+        }
+
+        .custom-card h5,
+        .custom-card p {
+            color: white;
+        }
+
+        .custom-card a {
+            color: #212529;
+            background-color: #fbca47;
+            border-color: #fbca47;
         }
     </style>
 
-    <div class="mt-3 ms-auto" style="margin-left: 93.5%;">
-        <a href="logout.php" class="btn btn-danger">Logout</a>
-    </div>
-
     <div class="container mt-5">
-        <h2>Dashboard</h2>
         <div class="row mt-3">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body" style=" background-color: rgba(255, 255, 255, 0.2);">
-                        <h5 class="card-title text-light">Buat Catatan</h5>
-                        <p class="card-text text-light">Tambahkan catatan baru.</p>
-                        <a href="create.php" class="btn btn-warning">Buat Catatan</a>
-                    </div>
+            <div class="col-md-4 mx-auto"> <!-- Tambahkan kelas mx-auto di sini -->
+                <div class="custom-card">
+                    <h5 class="card-title">Buat Catatan</h5>
+                    <p class="card-text">Tambahkan catatan baru.</p>
+                    <a href="create.php" class="btn btn-warning">Buat</a>
                 </div>
             </div>
-            <!-- <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Lihat Catatan</h5>
-                        <p class="card-text">Lihat catatan yang sudah dibuat.</p>
-                        <a href="read.php" class="btn btn-success">Lihat Catatan</a>
-                    </div>
-                </div>
-            </div> -->
-        </div>
-        <div class="mt-3">
-            <a href="logout.php" class="btn btn-danger">Logout</a>
         </div>
     </div>
 </body>

@@ -1,4 +1,3 @@
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +13,12 @@
             background-size: cover;
             height: 100vh;
             margin: 0;
-             align-items: center;
+            align-items: center;
             justify-content: center;
             color: #fbca47; /* Memberikan warna teks agar kontras dengan background */
         }
 
         .card{
-
             background: rgba(255, 255, 255, 0.2);
             border: 1px solid #ffffff;
         }
@@ -28,7 +26,6 @@
         .h5{
             color:white;
         }
-        
     </style>
 
     <div class="mt-3 ms-auto" style="margin-left: 93.5%;">
@@ -44,6 +41,7 @@
                     <div class="card-body">
                         <h5 class="card-title text-light">Lihat Catatan</h5>
                         <p class="card-text text-light">Lihat catatan yang sudah dibuat.</p>
+                        <!-- Perubahan pada atribut href di bawah -->
                         <a href="read.php" class="btn btn-warning">Lihat Catatan</a>
                     </div>
                 </div>
